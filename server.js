@@ -20,7 +20,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Cabernet Sauvignon",
         "cellarLocation": "A1",
-        "img_name": "wine01.jpg"
+        "image": "wine01.jpg"
     },
     {
         "_id": 2,
@@ -32,7 +32,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Cabernet Sauvignon",
         "cellarLocation": "A2",
-        "img_name": "wine02.jpg"
+        "image": "wine02.jpg"
     },
     {
         "_id": 3,
@@ -44,7 +44,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Cabernet Sauvignon",
         "cellarLocation": "A3",
-        "img_name": "wine03.jpg"
+        "image": "wine03.jpg"
     },
     {
         "_id": 4,
@@ -56,7 +56,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Pinot Noir",
         "cellarLocation": "A4",
-        "img_name": "wine04.jpg"
+        "image": "wine04.jpg"
     },
     {
         "_id": 5,
@@ -68,7 +68,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Pinot Noir",
         "cellarLocation": "B1",
-        "img_name": "wine05.jpg"
+        "image": "wine05.jpg"
     },
     {
         "_id": 6,
@@ -80,7 +80,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Pinot Noir",
         "cellarLocation": "B2",
-        "img_name": "wine06.jpg"
+        "image": "wine06.jpg"
     },
     {
         "_id": 7,
@@ -92,7 +92,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Zinfandel",
         "cellarLocation": "B3",
-        "img_name": "wine07.jpg"
+        "image": "wine07.jpg"
     },
     {
         "_id": 8,
@@ -104,7 +104,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Zinfandel",
         "cellarLocation": "B4",
-        "img_name": "wine08.jpg"
+        "image": "wine08.jpg"
     },
     {
         "_id": 9,
@@ -116,7 +116,7 @@ let houses = [
         "description": "Rose",
         "grape": "Grenache",
         "cellarLocation": "C1",
-        "img_name": "wine09.jpg"
+        "image": "wine09.jpg"
     },
     {
         "_id": 10,
@@ -128,7 +128,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Cabernet Blend",
         "cellarLocation": "C2",
-        "img_name": "wine10.jpg"
+        "image": "wine10.jpg"
     },
     {
         "_id": 11,
@@ -140,7 +140,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Grenache",
         "cellarLocation": "C3",
-        "img_name": "wine11.jpg"
+        "image": "wine11.jpg"
     },
     {
         "_id": 12,
@@ -152,7 +152,7 @@ let houses = [
         "description": "Red wine",
         "grape": "Sangiovese/Merlot Blend",
         "cellarLocation": "C4",
-        "img_name": "wine12.jpg"
+        "image": "wine12.jpg"
     }
 ];
 
