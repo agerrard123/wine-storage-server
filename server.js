@@ -9,7 +9,7 @@ app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/index.html");
 });
 
-let houses = [
+let wines = [
     {
         "_id": 1,
         "winery": "Gundlach Bundschu",
@@ -157,7 +157,7 @@ let houses = [
 ];
 
 app.get("/api/wines", (req, res)=>{
-    res.send(houses);
+    res.send(wines);
 });
 
 app.listen(3001, () => {
