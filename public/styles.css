@@ -1,3 +1,22 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: cursive;
+    background: url(images/table-wine.jpg);
+}
+
+section {
+    font-size: 25px;
+    margin-top: 20%;
+    margin-left: 25%;
+}
+
+h1, p {
+    color:darkred;
+}
+
+p {
+    font-weight: bold;
+}
+
+a {
+    color:black;
 }
