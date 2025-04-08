@@ -1,9 +1,22 @@
 const express = require("express");
 const cors = require("cors");
+const multer = require("multer");
+const Joi = require("joi");
 const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "./public/images/");
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  });
+  
+  const upload = multer({ storage: storage });
 
 app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/index.html");
@@ -159,6 +172,41 @@ let wines = [
 app.get("/api/wines", (req, res)=>{
     res.send(wines);
 });
+
+app.post("/api/wines", upload.single("img"), (req, res)=>{
+    console.log("I made it into the post");
+    const result = validateWine(req.body);
+
+    if(result.error) {
+        console.log("I have an error");
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }
+
+    const wine = {
+        _id: wines.length + 1,
+        name: req.body.name,
+        size: req. body.size,
+        bedrooms: req.body.bedrooms,
+        bathrooms: req.body.bathrooms,
+    };
+
+    wines.push(wine);
+    res.status(200).send(wine);
+});
+
+const validateWine = (wine) => {
+    const schema = Joi.object({
+        _id:Joi.allow(""),
+        name:Joi.string().min(3).required(),
+        size:Joi.number().required().min(0),
+        bedrooms:Joi.number().required().min(0),
+        bathrooms:Joi.number().required().min(0),
+
+    });
+
+    return schema.validate(wine);
+};
 
 app.listen(3001, () => {
     console.log("listening....")
