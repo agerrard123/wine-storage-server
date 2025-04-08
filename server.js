@@ -186,11 +186,14 @@ app.post("/api/wines", upload.single("img"), (req, res)=>{
     const wine = {
         _id: wines.length + 1,
         name: req.body.name,
-        size: req. body.size,
-        bedrooms: req.body.bedrooms,
-        bathrooms: req.body.bathrooms,
+        year: req. body.year,
+        price: req.body.price,
+        country: req.body.country,
+        region: req.body.region,
+        description: req.body.description,
+        grape: req.body.grape,
+        cellarLoc: req.body.cellarLoc,
     };
-
     wines.push(wine);
     res.status(200).send(wine);
 });
@@ -199,10 +202,13 @@ const validateWine = (wine) => {
     const schema = Joi.object({
         _id:Joi.allow(""),
         name:Joi.string().min(3).required(),
-        size:Joi.number().required().min(0),
-        bedrooms:Joi.number().required().min(0),
-        bathrooms:Joi.number().required().min(0),
-
+        year:Joi.number().required().min(1900),
+        price:Joi.number().required().min(0),
+        country:Joi.string().required().min(3),
+        region:Joi.string().required().min(3),
+        description:Joi.string().required().min(3),
+        grape:Joi.string().required().min(3),
+        cellarLoc:Joi.string().required().min(2),
     });
 
     return schema.validate(wine);
