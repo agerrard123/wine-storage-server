@@ -170,7 +170,6 @@ let wines = [
 ];
 
 app.get("/api/wines", (req, res)=>{
-    wines = [...wines];
     res.send(wines);
 });
 
