@@ -232,7 +232,7 @@ app.put("/api/wines/:id", upload.single("img"),(req, res)=>{
         wine.image = req.file.filename;
     }
 
-    req.status(200).send(wine);
+    res.status(200).send(wine);
 });
 
 app.delete("/api/wines/:id",(req,res)=>{
