@@ -203,6 +203,51 @@ app.post("/api/wines", upload.single("img"), (req, res)=>{
     res.status(200).send(wine);
 });
 
+//learned this app.put in class, its finding a house with a matching id
+app.put("/api/wines/:id", upload.single("img"),(req, res)=>{
+    const wine = wines.find((wine)=>wine._id === parseInt(req.params.id));
+
+    if(!wine) {
+        res.status(404).send("The wine with the provided id was not found");
+        return;
+    }
+
+    const result = validateWine(req.body);
+
+    if(result.error) {
+        res.status(400).send(result.error.details[0].message);
+        return;
+    }
+
+    wine.winery = req.body.winery;
+    wine.vintage = req.body.vintage;
+    wine.price = req.body.price;
+    wine.country = req.body.country;
+    wine.region = req.body.region;
+    wine.description = req.body.description;
+    wine.grape = req.body.grape;
+    wine.cellarLocation = req.body.cellarLocation;
+
+    if(req.file){
+        wine.image = req.file.filename;
+    }
+
+    req.status(200).send(wine);
+});
+
+app.delete("/api/wines/:id",(req,res)=>{
+    const wine = wines.find((wine)=>wine._id === parseInt(req.params.id));
+
+    if(!wine) {
+        res.status(404).send("The wine with the provided id was not found");
+        return;
+    }
+
+    const index = wines.indexOf(wine);
+    wines.splice(index,1);
+    res.status(200).send(wine);
+});
+
 const validateWine = (wine) => {
     const schema = Joi.object({
         _id:Joi.allow(""),
