@@ -3,6 +3,7 @@ const cors = require("cors");
 const multer = require("multer");
 const Joi = require("joi");
 const app = express();
+const mongoose = require("mongoose");
 app.use(express.static("public"));
 app.use(express.json());
 app.use(cors());
@@ -16,7 +17,18 @@ const storage = multer.diskStorage({
     },
   });
   
-  const upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
+
+mongoose
+  .connect(
+    "mongodb+srv://adamgerrard:Adam.Gerrard27@winestoragecluster.duzoood.mongodb.net/?retryWrites=true&w=majority&appName=WineStorageCluster"
+  )
+  .then(() => {
+    console.log("Connected to mongodb");
+  })
+  .catch((error) => {
+    console.log("couldn't connect to mongodb", error);
+  });
 
 app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/index.html");
